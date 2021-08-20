@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "title": "Элитка",
+      "image": "https://novostroyki.shop/wp-content/uploads/2021/01/2250619.jpg",
+      "type": "2х комннатная",
+      "price": "40000",
+      "description": "Отличная квартира",
+      "id": 7
+    }
+  ]
+}
