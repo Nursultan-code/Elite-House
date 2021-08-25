@@ -57,7 +57,7 @@ export default function ProductCard({ item }) {
 
     // const admin = 'abdybekovn@gmail.com'
 
-    const { getProducts, deleteProduct, addTourInCart, checkTourInCart } = useContext(ProductContext)
+    const { getProducts, deleteProduct, addTourInCart, checkTourInCart, addProductInFavorites, checkProductinFavorites } = useContext(ProductContext)
     // const [isAdmin, setIsAdmin] = useState(false)
 
 
@@ -118,11 +118,14 @@ export default function ProductCard({ item }) {
                         <DeleteIcon />
                     </IconButton>
 
-
+                    <IconButton aria-label="add to favorites" onClick={() => addProductInFavorites(item)} color={checkProductinFavorites(item.id) ? "secondary" : "inherit"}>
+                        <FavoriteIcon />
+                    </IconButton>
                 </>
 
                 {/* ) : (null) */}
                 {/* } */}
+
 
             </CardContent>
 

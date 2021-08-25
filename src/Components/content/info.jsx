@@ -1,14 +1,17 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
+import { Grid } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
     logos: {
         marginTop: '65px',
         display: 'flex',
+        flexWrap: 'wrap',
         justifyContent: 'space-around',
         marginLeft: '90px',
-        marginRight: '90px'
+        marginRight: '90px',
+        // width: '100vw'
 
     },
     logo1: {
@@ -91,8 +94,8 @@ const useStyles = makeStyles((theme) => ({
 const Info = () => {
     const classes = useStyles()
     return (
-        <div>
-            <div className={classes.logos}>
+        <Grid>
+            <Grid className={classes.logos}>
                 <div className={classes.logo1}>
                     <img src="https://static.tildacdn.com/tild6134-3436-4561-b238-663537343431/Frame_2.svg" alt="" />
                     <div className={classes.block1}>
@@ -114,8 +117,8 @@ const Info = () => {
                         <div className={classes.text3}>ЛЕТ НА РЫНКЕ</div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </Grid>
+        </Grid>
     );
 };
 

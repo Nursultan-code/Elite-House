@@ -6,8 +6,9 @@ import { useHistory } from 'react-router-dom';
 import ProductCard from './ProductCard';
 
 import { Pagination } from '@material-ui/lab';
-// import { getPage } from '../helpers/function';
+import { getPage } from '../Helpers/Function';
 import { ProductContext } from '../Context/ProductContext';
+import SideBar from './SideBar';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,30 +21,33 @@ const ProductsList = () => {
     const classes = useStyles()
     const history = useHistory()
     const { products, getProducts, paginatedPages } = useContext(ProductContext)
-    // const [page, setPage] = useState(getPage())
+    const [page, setPage] = useState(getPage())
     console.log(products);
     useEffect(() => {
         getProducts(history)
     }, [])
 
-    // function getPage(e, page) {
-    //     const search = new URLSearchParams(history.location.search)
-    //     if (!search.get('_page')) {
-    //         return
-    //     }
-    //     return search.get('_page')
-    // }
+    function getPage(e, page) {
+        const search = new URLSearchParams(history.location.search)
+        if (!search.get('_page')) {
+            return
+        }
+        return search.get('_page')
+    }
 
-    // const handlePage = (e, pageVal) => {
-    //     const search = new URLSearchParams(window.location.search)
-    //     search.set('_page', pageVal)
-    //     history.push(`${history.location.pathname}?${search.toString()}`)
-    //     getTours(history)
-    //     setPage(pageVal)
-    // }
+    const handlePage = (e, pageVal) => {
+        const search = new URLSearchParams(window.location.search)
+        search.set('_page', pageVal)
+        history.push(`${history.location.pathname}?${search.toString()}`)
+        getProducts(history)
+        setPage(pageVal)
+    }
 
     return (
         <>
+
+            <SideBar />
+
             <Grid container spacing={3} justify="space-evenly" style={{ marginTop: '90px' }}>
                 {
                     products ? (
@@ -64,13 +68,13 @@ const ProductsList = () => {
                 }}
             >
 
-                {/* <Pagination className={classes.pag}
+                <Pagination className={classes.pag}
                     variant="outlined"
                     count={paginatedPages}
                     color='secondary'
                     onChange={handlePage}
                     page={+page}
-                /> */}
+                />
             </div>
 
         </>

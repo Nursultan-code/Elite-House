@@ -7,6 +7,7 @@ import Info from '../content/info';
 import About from '../content/About';
 import News from '../content/News';
 import Map from '../content/Map';
+import Footer from '../content/Footer';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -23,6 +24,7 @@ const Home = () => {
                     <About />
                     <News />
                     <Map />
+                    {/* <Footer /> */}
                 </div>
             </div>
 

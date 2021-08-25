@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         // maxWidth: 1120,
         flexGrow: 1,
-        width: '100vw'
+        width: '100%'
     },
     header: {
         marginTop: 0,
@@ -56,12 +56,16 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center'
     },
     img: {
-        height: 808,
+        // height: 808,
         display: 'block',
         // maxWidth: '100vw',
         overflow: 'hidden',
-        width: '100vw',
+        width: '100%',
     },
+    p: {
+        position: 'absolute',
+        fontSize: '20px'
+    }
 }));
 
 function Carusel() {
@@ -109,6 +113,7 @@ function Carusel() {
                 {tutorialSteps.map((step, index) => (
                     <div key={step.label}>
                         {Math.abs(activeStep - index) <= 2 ? (
+                            <p className={classes.p}>{step.label}</p>,
                             <img className={classes.img} src={step.imgPath} alt={step.label} />
                         ) : null}
                     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -8,16 +8,20 @@ import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
+import BurgerMenu from './BurgerMenu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { Link, useHistory } from 'react-router-dom';
+import { ProductContext } from '../Context/ProductContext';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+
 
 const useStyles = makeStyles((theme) => ({
     navbar: {
-        backgroundColor: 'rgba(52, 52, 52, 0.1)',
+        backgroundColor: 'rgba(52, 52, 52, 0.7)',
         color: "white",
         elevation: 8
     },
@@ -93,8 +97,27 @@ export default function Navbar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
+    const history = useHistory()
+    const [searchVal, setSearchVal] = useState(getSearchval() || '')
+    const { getProducts, cartLength, getCartLength, favoritesLength } = useContext(ProductContext)
+
+
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+    function getSearchval() {
+        const search = new URLSearchParams(history.location.search)
+        return search.get('q')
+    }
+
+    const handleValue = (e) => {
+        const search = new URLSearchParams(history.location.search)
+        search.set('q', e.target.value)
+        history.push(`${history.location.pathname}?${search.toString()}`)
+        setSearchVal(e.target.value)
+        getProducts(history)
+
+    }
 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -124,8 +147,8 @@ export default function Navbar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <Link to='/login'> <MenuItem onClick={handleMenuClose}>Sign in</MenuItem> </Link>
+            <Link to="/registration"><MenuItem onClick={handleMenuClose}>Sign up</MenuItem></Link>
         </Menu>
     );
 
@@ -180,11 +203,17 @@ export default function Navbar() {
                         color="inherit"
                         aria-label="open drawer"
                     >
-                        <MenuIcon />
+                        {/* <MenuIcon /> */}
+                        <BurgerMenu />
                     </IconButton>
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        <img className={classes.logo} src="	https://static.tildacdn.com/tild3638-3239-4339-a436-636666313131/elite-house-logo-whi.png" alt="" />
-                    </Typography>
+                    <Link to={'/'} style={{
+                        color: 'white',
+                        textDecoration: 'none'
+                    }}>
+                        <Typography className={classes.title} variant="h6" noWrap>
+                            <img className={classes.logo} src="	https://static.tildacdn.com/tild3638-3239-4339-a436-636666313131/elite-house-logo-whi.png" alt="" />
+                        </Typography>
+                    </Link>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
@@ -196,20 +225,29 @@ export default function Navbar() {
                                 input: classes.inputInput,
                             }}
                             inputProps={{ 'aria-label': 'search' }}
+                            value={searchVal}
+                            onChange={handleValue}
                         />
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <IconButton aria-label="show 4 new mails" color="inherit">
+                        {/* <IconButton aria-label="show 4 new mails" color="inherit">
                             <Badge badgeContent={4} color="secondary">
                                 <MailIcon />
                             </Badge>
-                        </IconButton>
-                        <IconButton aria-label="show 17 new notifications" color="inherit">
+                        </IconButton> */}
+                        {/* <IconButton aria-label="show 17 new notifications" color="inherit">
                             <Badge badgeContent={17} color="secondary">
                                 <NotificationsIcon />
                             </Badge>
-                        </IconButton>
+                        </IconButton> */}
+                        <Link to={'/favorite'} style={{ color: 'white' }}>
+                            <IconButton aria-label="show 17 new notifications" color="inherit">
+                                <Badge badgeContent={favoritesLength} color="secondary">
+                                    <FavoriteIcon />
+                                </Badge>
+                            </IconButton>
+                        </Link>
                         <IconButton
                             edge="end"
                             aria-label="account of current user"

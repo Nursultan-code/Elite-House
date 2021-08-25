@@ -19,6 +19,9 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 
 const useStyles = makeStyles((theme) => ({
+    // container: {
+    //     
+    // },
     root: {
         maxWidth: 600,
         marginTop: 20,
@@ -59,7 +62,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-around',
         marginLeft: '90px',
         marginRight: '90px',
-        marginTop: '20px'
+        marginTop: '20px',
+        flexWrap: 'wrap',
+
     },
     news: {
         textAlign: 'left',
@@ -82,102 +87,114 @@ const News = () => {
             <div className={classes.news}>НОВОСТИ</div>
             <div className={classes.cards}>
                 <div>
-                    <Card className={classes.root}>
+                    <a style={{
+                        textDecoration: 'none'
+                    }} href="https://elitehouse.kg/page14396314.html">
+                        <Card className={classes.root}>
 
-                        {/* <CardHeader
+                            {/* <CardHeader
                             // title={item.title}
                             // subheader={item.type}
                         ><p></p></CardHeader> */}
-                        <CardMedia
-                            className={classes.media}
-                            image='https://static.tildacdn.com/tild3461-3763-4061-a331-333436663837/7.jpg'
+                            <CardMedia
+                                className={classes.media}
+                                image='https://static.tildacdn.com/tild3461-3763-4061-a331-333436663837/7.jpg'
 
-                            title="Beautiful"
-                        />
-                        <CardContent>
-                            {/* <Typography variant="body2" color="textSecondary" component="p">
+                                title="Beautiful"
+                            />
+                            <CardContent>
+                                {/* <Typography variant="body2" color="textSecondary" component="p">
                                 {item.description.substring(0, 250)}
                             </Typography> */}
-                        </CardContent>
+                            </CardContent>
 
 
-                        <Typography className={classes.text1} variant="body2" color="textSecondary">
-                            Тимур Файзиев готов инвестировать в бизнес-идею
-                            до 100 000 долларов и стать наставником!
-                        </Typography>
-                        <CardContent>
-                            <Typography className={classes.text2} variant="body2" color="textSecondary">
-
-                                Строительная компания Elite House представляет социальный проект «Бизнес Өкүл Ата», который направлен на развитие предпринимательства и поддержку новых бизнес-проектов в Кыргызской Республике.
-
+                            <Typography className={classes.text1} variant="body2" color="textSecondary">
+                                Тимур Файзиев готов инвестировать в бизнес-идею
+                                до 100 000 долларов и стать наставником!
                             </Typography>
-                        </CardContent>
-                    </Card >
+                            <CardContent>
+                                <Typography className={classes.text2} variant="body2" color="textSecondary">
+
+                                    Строительная компания Elite House представляет социальный проект «Бизнес Өкүл Ата», который направлен на развитие предпринимательства и поддержку новых бизнес-проектов в Кыргызской Республике.
+
+                                </Typography>
+                            </CardContent>
+                        </Card >
+                    </a>
                 </div>
                 <div>
-                    <Card className={classes.root}>
+                    <a style={{
+                        textDecoration: 'none'
+                    }} href="https://elitehouse.kg/page14396241.html">
+                        <Card className={classes.root}>
 
-                        {/* <CardHeader
+                            {/* <CardHeader
                             // title={item.title}
                             // subheader={item.type}
                         ><p></p></CardHeader> */}
-                        <CardMedia
-                            className={classes.media}
-                            image='https://static.tildacdn.com/tild3464-6237-4964-b064-323366613461/new.png'
+                            <CardMedia
+                                className={classes.media}
+                                image='https://static.tildacdn.com/tild3464-6237-4964-b064-323366613461/new.png'
 
-                            title="Beautiful"
-                        />
-                        <CardContent>
-                            {/* <Typography variant="body2" color="textSecondary" component="p">
+                                title="Beautiful"
+                            />
+                            <CardContent>
+                                {/* <Typography variant="body2" color="textSecondary" component="p">
                                 {item.description.substring(0, 250)}
                             </Typography> */}
-                        </CardContent>
+                            </CardContent>
 
 
-                        <Typography className={classes.text1} variant="body2" color="textSecondary">
-                            Elite House разыгрывает квартиру!
-                        </Typography>
-                        <CardContent>
-                            <Typography className={classes.text2} variant="body2" color="textSecondary">
-
-                                Строительная компания Elite House запускает грандиозную акцию! Приобретая любую недвижимость, вы получаете один лотерейный билет, который будет участвовать в розыгрыше 1-комнатной квартиры в жилом комплексе "Эл Классик Плюс". И это еще не всё! Новый iPhone-11 ждет каждого покупателя в период акции!
-
+                            <Typography className={classes.text1} variant="body2" color="textSecondary">
+                                Elite House разыгрывает квартиру!
                             </Typography>
-                        </CardContent>
-                    </Card >
+                            <CardContent>
+                                <Typography className={classes.text2} variant="body2" color="textSecondary">
+
+                                    Строительная компания Elite House запускает грандиозную акцию! Приобретая любую недвижимость, вы получаете один лотерейный билет, который будет участвовать в розыгрыше 1-комнатной квартиры в жилом комплексе "Эл Классик Плюс". И это еще не всё! Новый iPhone-11 ждет каждого покупателя в период акции!
+
+                                </Typography>
+                            </CardContent>
+                        </Card >
+                    </a>
                 </div>
                 <div>
-                    <Card className={classes.root}>
+                    <a style={{
+                        textDecoration: 'none'
+                    }} href="https://elitehouse.kg/page14395946.html">
+                        <Card className={classes.root}>
 
-                        {/* <CardHeader
+                            {/* <CardHeader
                             // title={item.title}
                             // subheader={item.type}
                         ><p></p></CardHeader> */}
-                        <CardMedia
-                            className={classes.media}
-                            image='https://static.tildacdn.com/tild3966-6562-4631-a632-336530656666/51.jpg'
+                            <CardMedia
+                                className={classes.media}
+                                image='https://static.tildacdn.com/tild3966-6562-4631-a632-336530656666/51.jpg'
 
-                            title="Beautiful"
-                        />
-                        <CardContent>
-                            {/* <Typography variant="body2" color="textSecondary" component="p">
+                                title="Beautiful"
+                            />
+                            <CardContent>
+                                {/* <Typography variant="body2" color="textSecondary" component="p">
                                 {item.description.substring(0, 250)}
                             </Typography> */}
-                        </CardContent>
+                            </CardContent>
 
 
-                        <Typography className={classes.text1} variant="body2" color="textSecondary">
-                            Жилой квартал New York City: американская мечта в Бишкеке!
-                        </Typography>
-                        <CardContent>
-                            <Typography className={classes.text2} variant="body2" color="textSecondary">
-
-                                Компания Elite House рада представить вашему вниманию новый жилой квартал бизнес-класса New York City, расположенный в южной части Бишкека, в районе улиц Сухэ-Батора и Аалы Токомбаева.
-
-
+                            <Typography className={classes.text1} variant="body2" color="textSecondary">
+                                Жилой квартал New York City: американская мечта в Бишкеке!
                             </Typography>
-                        </CardContent>
-                    </Card >
+                            <CardContent>
+                                <Typography className={classes.text2} variant="body2" color="textSecondary">
+
+                                    Компания Elite House рада представить вашему вниманию новый жилой квартал бизнес-класса New York City, расположенный в южной части Бишкека, в районе улиц Сухэ-Батора и Аалы Токомбаева.
+
+
+                                </Typography>
+                            </CardContent>
+                        </Card >
+                    </a>
                 </div>
 
             </div>

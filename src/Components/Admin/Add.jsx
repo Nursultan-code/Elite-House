@@ -31,7 +31,8 @@ const Add = () => {
         image: '',
         type: '',
         price: '',
-        description: ''
+        description: '',
+        comments: []
     })
 
     const { addProduct } = useContext(ProductContext)
@@ -56,7 +57,7 @@ const Add = () => {
             <h1 style={{ textAlign: 'center' }}>Добавить квартиру</h1>
             <div style={{ display: 'flex', justifyContent: 'space-around', color: 'black' }}>
                 <div>
-                    <img style={{ height: '300px', width: '400px' }} src={values.image ? values.image : "https://novostroyki.shop/wp-content/uploads/2021/01/2250619.jpg"} alt="Tour image" />
+                    <img style={{ height: '300px', width: '400px' }} src={values.image ? values.image : "https://novostroyki.shop/wp-content/uploads/2021/01/2250619.jpg"} alt="image" />
                 </div>
                 <div
                     style={{
